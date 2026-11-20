@@ -1,0 +1,27 @@
+# Builds this extension for the web application of Slicer (SlicerWeb), against
+# a preview of the web runtime that has the changes to Slicer the extension
+# needs and that are not in Slicer yet (the preview-lightbox release of
+# Sunderlandkyl/Slicer, built from its preview/lightbox branch).
+#
+# For trying the extension in the browser. Started by hand; it publishes the
+# package to the release "preview" of this repository.
+name: Build for the web (preview)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    permissions:
+      contents: write
+    uses: Sunderlandkyl/Slicer/.github/workflows/extension-build.yml@preview/lightbox
+    with:
+      platforms: web
+      slicer-repository: Sunderlandkyl/Slicer
+      slicer-ref: preview/lightbox
+      release-tag: preview-lightbox
+      publish: true
+      publish-tag: preview
