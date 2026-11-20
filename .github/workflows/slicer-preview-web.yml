@@ -3,11 +3,15 @@
 # needs and that are not in Slicer yet (the preview-lightbox release of
 # Sunderlandkyl/Slicer, built from its preview/lightbox branch).
 #
-# For trying the extension in the browser. Started by hand; it publishes the
-# package to the release "preview" of this repository.
+# For trying the extension in the browser. It runs for each commit to the
+# web-preview branch, the only one that has it, and publishes the package to
+# the release "preview" of this repository.
 name: Build for the web (preview)
 
 on:
+  push:
+    branches:
+      - web-preview
   workflow_dispatch:
 
 permissions:
