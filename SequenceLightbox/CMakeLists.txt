@@ -64,6 +64,13 @@ slicerMacroBuildLoadableModule(
   )
 
 #-----------------------------------------------------------------------------
+# SlicerWeb (Slicer in the web browser) builds no Qt class: there the module is set up by a
+# scripted module.
+if(DEFINED SlicerWeb_CMAKE_DIR)
+  add_subdirectory(Web)
+endif()
+
+#-----------------------------------------------------------------------------
 if(BUILD_TESTING)
   add_subdirectory(Testing)
 endif()
